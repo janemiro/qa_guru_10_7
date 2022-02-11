@@ -2,20 +2,22 @@ plugins {
     id 'java'
 }
 
+group 'guru.qa'
+version '1.0'
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation(
-            'commons-io:commons-io:2.11.0',
+    testImplementation ('org.junit.jupiter:junit-jupiter-api:5.8.2',
+            'com.codeborne:selenide:6.2.0',
+            'org.assertj:assertj-core:3.22.0',
             'com.codeborne:pdf-test:1.7.0',
-            'com.codeborne:xls-test:1.2',
-            'com.opencsv:opencsv:5.5.2',
-            'org.junit.jupiter:junit-jupiter:5.8.1',
-            'com.codeborne:selenide:6.0.3'
+            'com.codeborne:xls-test:1.4.3',
+            'com.opencsv:opencsv:5.5.2'
     )
-    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.8.1')
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.8.2"
 }
 
 test {
@@ -23,5 +25,5 @@ test {
 }
 
 tasks.withType(JavaCompile) {
-  options.encoding = 'UTF-8'
+    options.encoding = 'UTF-8'
 }
